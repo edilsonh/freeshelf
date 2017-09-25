@@ -1,6 +1,9 @@
+<% if current_user.id == Book.find_by(id: params[:id]).user_id %>
 <h1>Editing Book</h1>
+  <%= render 'form', book: @book %>
 
-<%= render 'form', book: @book %>
-
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+  <%= link_to 'Show', @book %> |
+  <%= link_to 'Back', books_path %>
+<% else %>
+  <p>You are not authorized to edit this book!</p>
+<% end %>

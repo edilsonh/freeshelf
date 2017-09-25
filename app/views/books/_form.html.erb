@@ -36,7 +36,7 @@
     <%= form.text_field :url, id: :book_url %>
   </div>
 
-  <%= form.hidden_field :user_id, value: session[:user_id] %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
 
   <div class="actions">
     <%= form.submit %>
