@@ -3,14 +3,16 @@
 <% if @user.errors.any? %>
   <h2>Please correct the problems below before signing up.</h2>
   <ul>
-    <% @users.errors.full_messages.each do |msg| %>
+    <% @user.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
       <% end %>
   </ul>
 <% end %>
   <%= form_for :user, url: users_path do |f| %>
-    Email: <%= f.text_field :email %>
-    Password: <%= f.password_field :password %>
+  <table>
+    <tr><td>Email:</td><td><%= f.text_field :email %></td></tr>
+    <tr><td>Password:</td><td><%= f.password_field :password %></td></tr>
+  </table>
 
   <%= f.submit "Sign me up" %>
 <% end %>
